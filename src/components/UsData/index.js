@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import  MydModalWithGrid from './ModalWithGrid/index'
+import  MydModalWithGrid from '../ModalCompContainer/ModalWithGrid/index'
 import { Button } from 'react-bootstrap'
 
-  class Modalbutton extends Component {
+  class UsData extends Component {
     constructor(props){
         super(props);
       this.state = {
@@ -10,10 +10,6 @@ import { Button } from 'react-bootstrap'
       }
   }
   
-  onClose =()=>{
-    this.setState({modalshow:false})
-          window.location.href='/'
-  }
         render() {          
             return (
                 <div>
@@ -21,11 +17,11 @@ import { Button } from 'react-bootstrap'
                      {this.props.modalName}
                     </Button>
                     <MydModalWithGrid show={this.state.modalshow} 
-                    onHide={this.onClose } 
+                    onHide={() => this.setState({modalshow:false})} 
                     modalname={this.props.modalName} 
                     data={this.props.data}
                     page={this.props.page}
-                    search={this.props.search}/>
+                    search={this.props.search} />
                 </div>
             )
         }
@@ -33,6 +29,6 @@ import { Button } from 'react-bootstrap'
     
 
 
-  export default Modalbutton
+  export default UsData
   
   
